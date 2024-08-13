@@ -11,7 +11,13 @@ function User() {
       </h1>
       <hr />
       <Link to="followers">See followers</Link>
-      <Outlet />
+      <Outlet
+        context={{
+          nameOfMyUser: users.map((user) =>
+            user.id === Number(userId) ? user.name : null
+          ),
+        }}
+      />
     </div>
   );
 }
